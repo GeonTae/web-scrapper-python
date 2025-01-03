@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Scrapper</title>
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+  <main class="container">
+    <hgroup>
+      <h1>Search Results for "{{keyword}}":</h1>
+    </hgroup>
+    <figure>
+      <h2>Berlin Startup Jobs</h2>
+      <table role="grid">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Skills</th>
+            <th>Job description</th>
+            <th>company Link</th>
+            <th>Detail Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in berlin_jobs %}
+          <tr>
+            <td>{{job.title}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.skills}}</td>
+            <td>{{job.job_description}}</td>
+            <td><a href="{{job.company_link}}" target="_blank">Company &rarr;</a></td>
+            <td><a href="{{job.detail_link}}" target="_blank">Apply &rarr;</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </figure>
+    <!-- ================================================================================================================ -->
+    <figure>
+      <h2>Wework remote Jobs</h2>
+      <table role="grid">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Contract type</th>
+            <th>Region</th>
+            <th>Detail Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in wework_jobs %}
+          <tr>
+            <td>{{job.title}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.contract_type}}</td>
+            <td>{{job.region}}</td>
+            <td><a href="{{job.detail_link}}" target="_blank">Apply &rarr;</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </figure>
+    <!-- ================================================================================================================ -->
+    <figure>
+      <h2>Web3 Career Jobs</h2>
+      <table role="grid">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Work type</th>
+            <th>Detail Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in web3_jobs %}
+          <tr>
+            <td>{{job.title}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.work_type}}</td>
+            <td><a href="{{job.detail_link}}" target="_blank">Apply &rarr;</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </figure>
+  </main>
+</body>
+
+</html>
